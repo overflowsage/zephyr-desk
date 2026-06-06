@@ -10,7 +10,6 @@
 [![Node 20+](https://img.shields.io/badge/node-20%2B-brightgreen.svg)](https://nodejs.org)
 [![MCP Plugin](https://img.shields.io/badge/MCP-plugin-purple.svg)](https://modelcontextprotocol.io)
 [![TypeScript](https://img.shields.io/badge/built%20with-TypeScript-3178c6.svg)](https://www.typescriptlang.org)
-[![Powered by Claude](https://img.shields.io/badge/powered%20by-Claude%20Opus%204.8-orange.svg)](https://anthropic.com)
 
 </div>
 
@@ -38,7 +37,7 @@ Zephyr works differently:
 
 > **Contradiction surfacing.** When KOVA says the business is healthy and VEIL finds a hidden debt covenant risk, ZEPHYR doesn't smooth it over. It flags the tension. Contradictions between analysts are often the most important insight in the entire report.
 
-> **Editorial judgment.** ZEPHYR (Opus 4.8) reads all five reports as a senior portfolio manager — with skepticism, with editorial voice, with a position. Not a summary. A verdict.
+> **Editorial judgment.** ZEPHYR reads all five reports as a senior portfolio manager — with skepticism, with editorial voice, with a position. Not a summary. A verdict.
 
 > **Live data.** Every agent searches the web during your request. No stale training data. What you get reflects what the market knows today.
 
@@ -49,7 +48,7 @@ Zephyr works differently:
 ```
 ┌─────────────────────────────────────────────────────────────────────────┐
 │                                                                         │
-│   ⚡  ZEPHYR    Team Lead · Opus 4.8                                    │
+│   ⚡  ZEPHYR    Team Lead                                               │
 │                 20-year portfolio manager. Former Morgan Stanley         │
 │                 sell-side, then managing partner at a long/short fund.  │
 │                 Reads all five reports. Finds the signal in the noise.  │
@@ -57,31 +56,31 @@ Zephyr works differently:
 │                                                                         │
 ├─────────────────────────────────────────────────────────────────────────┤
 │                                                                         │
-│   💼  KOVA      Fundamentals · Sonnet 4.6                               │
+│   💼  KOVA      Fundamentals                                            │
 │                 15 years. Former Goldman Sachs equity research,         │
 │                 then PM at a $4B long/short fund. Knows exactly which   │
 │                 numbers companies bury in footnotes — and why.          │
 │                 Searches: Yahoo Finance · StockAnalysis · SEC EDGAR     │
 │                                                                         │
-│   📈  RAZE      Technical · Sonnet 4.6                                  │
+│   📈  RAZE      Technical Analysis                                      │
 │                 12 years on prop trading desks. Multi-timeframe         │
 │                 analyst who treats charts as probability maps, not      │
 │                 crystal balls. Weekly → daily → intraday.               │
 │                 Searches: Finviz · Yahoo Finance · Macrotrends          │
 │                                                                         │
-│   🔥  FLARE     News & Catalysts · Sonnet 4.6                           │
+│   🔥  FLARE     News & Catalysts                                        │
 │                 13 years at a $6B event-driven fund. Knows the          │
 │                 difference between a genuine catalyst and a press       │
 │                 release dressed up as one. Assigns probability to each. │
 │                 Searches: Yahoo News · EarningsWhispers · Reuters       │
 │                                                                         │
-│   🧠  HERD      Sentiment & Positioning · Sonnet 4.6                    │
+│   🧠  HERD      Sentiment & Positioning                                 │
 │                 14 years tracking institutional flows. What investors   │
 │                 SAY and what they DO are often different things.        │
 │                 The gap between them is where the real signal lives.    │
 │                 Searches: 13F filings · StockTwits · Options flow       │
 │                                                                         │
-│   ⚠️   VEIL      Risk · Sonnet 4.6                                       │
+│   ⚠️   VEIL      Risk Intelligence                                       │
 │                 16 years. Ex-short seller. Head of risk at a            │
 │                 multi-billion fund. Has been right on shorts before     │
 │                 the market saw them coming. The permanent skeptic.      │
@@ -105,7 +104,6 @@ Zephyr works differently:
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
   TEAM ON THIS REPORT
   ZEPHYR (Lead) · KOVA · RAZE · FLARE · HERD · VEIL
-  Models: Opus 4.8 (synthesis) · Sonnet 4.6 ×5 (analysis)
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 ┌─────────────────────────────────────────────────────────────────┐
@@ -362,7 +360,7 @@ zephyr-desk/
 │   ├── index.ts                    ← MCP server · 5 tools registered
 │   ├── types.ts                    ← interfaces · colors · model constants
 │   ├── agents/
-│   │   ├── zephyr.ts               ← Team Lead · Opus 4.8 · synthesis + quick
+│   │   ├── zephyr.ts               ← Team Lead · synthesis + quick analysis
 │   │   ├── kova.ts                 ← Fundamentals · 15yr Goldman/PM persona
 │   │   ├── raze.ts                 ← Technical · 12yr prop desk persona
 │   │   ├── flare.ts                ← News & Catalysts · 13yr event-driven persona
@@ -417,7 +415,7 @@ Every analyst's methodology is documented in `src/skills/`. These are reference 
 
 **⚡ ZEPHYR ANALYST DESK**
 
-Version 1.0.0 · Opus 4.8 + Sonnet 4.6 ×5 · MCP SDK · MIT License
+Version 1.0.0 · MCP Plugin · MIT License
 
 *Not financial advice. Research tool only. Always do your own due diligence.*
 
