@@ -1,0 +1,13 @@
+{
+  "mcpServers": {
+    "zephyr-analyst-desk": {
+      "type": "stdio",
+      "command": "npx",
+      "args": ["-y", "zephyr-analyst-desk"],
+      "env": {
+        "ANTHROPIC_API_KEY": "${ANTHROPIC_API_KEY}",
+        "BRAVE_SEARCH_API_KEY": "${BRAVE_SEARCH_API_KEY}"
+      }
+    }
+  }
+}

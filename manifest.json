@@ -1,0 +1,59 @@
+{
+  "name": "zephyr-analyst-desk",
+  "displayName": "⚡ Zephyr Analyst Desk",
+  "version": "1.0.0",
+  "description": "Six AI analysts run in parallel to produce a full stock research report — fundamentals, technical, news, sentiment, and risk — synthesized by a senior lead with a clear verdict.",
+  "longDescription": "Zephyr Analyst Desk is a multi-agent stock analysis system. Ask it to analyze any ticker and six specialized AI analysts (KOVA, RAZE, FLARE, HERD, VEIL) run simultaneously, each searching live web data in their domain. ZEPHYR, the team lead, synthesizes all five reports into a structured, opinionated research report with a clear outlook and verdict. Use /zephyr-desk TSLA or just ask 'Analyze TSLA' after installing.",
+  "runtime": "node",
+  "main": "dist/index.js",
+  "repository": "https://github.com/overflowsage/zephyr-desk",
+  "mcpServers": {
+    "zephyr-analyst-desk": {
+      "command": "node",
+      "args": ["dist/index.js"]
+    }
+  },
+  "requiredEnvVars": [
+    {
+      "name": "ANTHROPIC_API_KEY",
+      "description": "Your Anthropic API key — get it at console.anthropic.com",
+      "secret": true,
+      "required": true
+    },
+    {
+      "name": "BRAVE_SEARCH_API_KEY",
+      "description": "Brave Search API key for live data — free tier at brave.com/search/api",
+      "secret": true,
+      "required": false
+    }
+  ],
+  "tools": [
+    {
+      "name": "zephyr_analyze",
+      "description": "Full team analysis: 5 agents in parallel + ZEPHYR synthesis. Say 'Analyze TSLA' or '/zephyr-desk TSLA'."
+    },
+    {
+      "name": "zephyr_quick",
+      "description": "Fast ZEPHYR-only take. Say '/zephyr-desk TSLA quick'."
+    },
+    {
+      "name": "zephyr_agent",
+      "description": "Single analyst. KOVA=fundamentals, RAZE=technical, FLARE=news, HERD=sentiment, VEIL=risk."
+    },
+    {
+      "name": "zephyr_cache_clear",
+      "description": "Clear cached analyses."
+    },
+    {
+      "name": "zephyr_cache_status",
+      "description": "View all cached analyses."
+    }
+  ],
+  "promptExamples": [
+    "Analyze TSLA",
+    "Analyze NVDA",
+    "/zephyr-desk AAPL",
+    "/zephyr-desk MSFT quick",
+    "/zephyr-desk AMZN risk"
+  ]
+}

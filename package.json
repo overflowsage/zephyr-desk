@@ -1,0 +1,42 @@
+{
+  "name": "zephyr-analyst-desk",
+  "version": "1.0.0",
+  "description": "Multi-agent stock analysis MCP server — 6 AI analysts in parallel",
+  "type": "module",
+  "bin": {
+    "zephyr-analyst-desk": "dist/index.js"
+  },
+  "files": [
+    "dist",
+    "src/skills"
+  ],
+  "scripts": {
+    "build": "tsc && shx chmod +x dist/index.js",
+    "prepare": "npm run build",
+    "start": "node dist/index.js",
+    "dev": "tsx src/index.ts"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.52.0",
+    "@modelcontextprotocol/sdk": "^1.12.0",
+    "dotenv": "^16.5.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "shx": "^0.3.4",
+    "tsx": "^4.19.0",
+    "typescript": "^5.7.0"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "keywords": [
+    "mcp",
+    "claude",
+    "stock-analysis",
+    "ai-agents",
+    "anthropic",
+    "finance"
+  ],
+  "license": "MIT"
+}
