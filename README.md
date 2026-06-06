@@ -6,7 +6,6 @@
 
 *The stock research plugin that thinks like a Wall Street desk — not a chatbot.*
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Node 20+](https://img.shields.io/badge/Node-20%2B-brightgreen.svg)](https://nodejs.org)
 [![MCP Plugin](https://img.shields.io/badge/MCP-Plugin-8A2BE2.svg)](https://modelcontextprotocol.io)
 [![TypeScript](https://img.shields.io/badge/TypeScript-Strict-3178c6.svg)](https://www.typescriptlang.org)
