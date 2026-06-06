@@ -1,89 +1,206 @@
-# ⚡ Zephyr Analyst Desk
+<![CDATA[<div align="center">
 
-> Six AI analysts. One verdict. Live data. No fluff.
+# ⚡ ZEPHYR ANALYST DESK
 
-`ZEPHYR` · `KOVA` · `RAZE` · `FLARE` · `HERD` · `VEIL`
+### Six AI analysts. One verdict. Live data. No fluff.
 
----
+*The stock research plugin that thinks like a Wall Street desk — not a chatbot.*
 
-## What Is This
+[![MIT License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+[![Node 20+](https://img.shields.io/badge/node-20%2B-brightgreen.svg)](https://nodejs.org)
+[![MCP Plugin](https://img.shields.io/badge/MCP-plugin-purple.svg)](https://modelcontextprotocol.io)
+[![TypeScript](https://img.shields.io/badge/built%20with-TypeScript-3178c6.svg)](https://www.typescriptlang.org)
+[![Powered by Claude](https://img.shields.io/badge/powered%20by-Claude%20Opus%204.8-orange.svg)](https://anthropic.com)
 
-Zephyr Analyst Desk is a multi-agent stock analysis MCP plugin for Claude. Ask it about any stock and six specialized AI analysts run in parallel — each searching live web data in their domain — then a senior lead synthesizes their findings into a structured, opinionated research report with a clear verdict.
-
-The core idea is specialization plus parallel execution. A single model asked "analyze NVDA" produces one perspective. Zephyr runs five distinct analysts simultaneously — fundamentals, technical, news, sentiment, and risk — each with a dedicated job, a defined methodology, and specific live sources to search. The team lead (ZEPHYR, powered by Opus 4.8) reads all five reports and does something harder than aggregation: it finds where they agree, surfaces where they contradict, and writes an editorial synthesis with a position. Contradictions between analysts are often the most important insight, not a problem to smooth over.
-
-This produces analysis that would take a human analyst hours to assemble — in under two minutes, with live data, at every step.
-
----
-
-## The Team
-
-| Agent | Role | Model | Searches | Depth |
-|-------|------|-------|----------|-------|
-| ⚡ **ZEPHYR** | Team Lead & Synthesizer | Opus 4.8 | Team reports | Editorial synthesis, verdict, 20yr PM judgment |
-| 💼 **KOVA** | Fundamentals | Sonnet 4.6 | Yahoo Finance, StockAnalysis, Macrotrends, SEC EDGAR | Revenue, margins, FCF, ROIC, valuation, earnings quality |
-| 📈 **RAZE** | Technical | Sonnet 4.6 | Finviz, Yahoo Finance, StockAnalysis | Multi-timeframe trend, support/resistance, momentum, volume, relative strength |
-| 🔥 **FLARE** | News & Catalysts | Sonnet 4.6 | Yahoo News, EarningsWhispers, SeekingAlpha, Reuters | Upcoming events, probability scenarios, analyst actions, management tone |
-| 🧠 **HERD** | Sentiment & Positioning | Sonnet 4.6 | StockTwits, MarketBeat, Finviz, 13F filings, Options | Consensus, institutional vs retail divergence, options flow, short interest |
-| ⚠️ **VEIL** | Risk | Sonnet 4.6 | SEC EDGAR, Reuters, FT, Court records, Finviz | 3 company-specific risks, historical analogues, thesis-breaker scenario |
+</div>
 
 ---
 
-## How It Works
+## What is this?
+
+You ask Claude: **"Analyze TSLA"**
+
+Instantly, six AI analysts with distinct Wall Street backgrounds deploy in parallel. Each searches live web data in their specific domain. In under two minutes, you get a research report that would take a human analyst half a day to produce — formatted, opinionated, and built on real data pulled right now.
+
+This is not a chatbot giving you a summary. This is a research desk.
+
+---
+
+## Why Zephyr is different
+
+Most AI stock analysis tools ask one model to do everything. That produces one perspective, averaged across all domains, with no real specialization. It's like asking your accountant to also do your legal work and chart your trades.
+
+Zephyr works differently:
+
+> **Specialization.** Each analyst has one job. KOVA only looks at financials. RAZE only looks at price action. VEIL only looks for what could go wrong. Focused experts outperform generalists.
+
+> **Parallel execution.** All five analysts search live data simultaneously — not sequentially. The full team runs in the same time one analyst would.
+
+> **Contradiction surfacing.** When KOVA says the business is healthy and VEIL finds a hidden debt covenant risk, ZEPHYR doesn't smooth it over. It flags the tension. Contradictions between analysts are often the most important insight in the entire report.
+
+> **Editorial judgment.** ZEPHYR (Opus 4.8) reads all five reports as a senior portfolio manager — with skepticism, with editorial voice, with a position. Not a summary. A verdict.
+
+> **Live data.** Every agent searches the web during your request. No stale training data. What you get reflects what the market knows today.
+
+---
+
+## Meet the team
 
 ```
-You: "Analyze TSLA"
-        │
-        ▼
-┌───────────────────────────────────────────────────┐
-│  ZEPHYR resolves ticker metadata                  │
-│  Briefs the team — parallel execution begins      │
-└───────────────────────────────────────────────────┘
-        │
-        ├──── 💼 KOVA  → searches financials live
-        ├──── 📈 RAZE  → searches price/chart live
-        ├──── 🔥 FLARE → searches news/events live      (all 5 at once)
-        ├──── 🧠 HERD  → searches sentiment live
-        └──── ⚠️  VEIL  → searches risk factors live
-        │
-        ▼
-┌───────────────────────────────────────────────────┐
-│  ⚡ ZEPHYR reads all 5 reports                    │
-│  Finds agreements → conviction signals            │
-│  Surfaces contradictions → most important insight │
-│  Writes editorial synthesis + structured verdict  │
-└───────────────────────────────────────────────────┘
-        │
-        ▼
-  Full formatted report · Saved to ~/.zephyr/reports/
-  Cached 4 hours · Not financial advice
+┌─────────────────────────────────────────────────────────────────────────┐
+│                                                                         │
+│   ⚡  ZEPHYR    Team Lead · Opus 4.8                                    │
+│                 20-year portfolio manager. Former Morgan Stanley         │
+│                 sell-side, then managing partner at a long/short fund.  │
+│                 Reads all five reports. Finds the signal in the noise.  │
+│                 Takes a position and owns it.                           │
+│                                                                         │
+├─────────────────────────────────────────────────────────────────────────┤
+│                                                                         │
+│   💼  KOVA      Fundamentals · Sonnet 4.6                               │
+│                 15 years. Former Goldman Sachs equity research,         │
+│                 then PM at a $4B long/short fund. Knows exactly which   │
+│                 numbers companies bury in footnotes — and why.          │
+│                 Searches: Yahoo Finance · StockAnalysis · SEC EDGAR     │
+│                                                                         │
+│   📈  RAZE      Technical · Sonnet 4.6                                  │
+│                 12 years on prop trading desks. Multi-timeframe         │
+│                 analyst who treats charts as probability maps, not      │
+│                 crystal balls. Weekly → daily → intraday.               │
+│                 Searches: Finviz · Yahoo Finance · Macrotrends          │
+│                                                                         │
+│   🔥  FLARE     News & Catalysts · Sonnet 4.6                           │
+│                 13 years at a $6B event-driven fund. Knows the          │
+│                 difference between a genuine catalyst and a press       │
+│                 release dressed up as one. Assigns probability to each. │
+│                 Searches: Yahoo News · EarningsWhispers · Reuters       │
+│                                                                         │
+│   🧠  HERD      Sentiment & Positioning · Sonnet 4.6                    │
+│                 14 years tracking institutional flows. What investors   │
+│                 SAY and what they DO are often different things.        │
+│                 The gap between them is where the real signal lives.    │
+│                 Searches: 13F filings · StockTwits · Options flow       │
+│                                                                         │
+│   ⚠️   VEIL      Risk · Sonnet 4.6                                       │
+│                 16 years. Ex-short seller. Head of risk at a            │
+│                 multi-billion fund. Has been right on shorts before     │
+│                 the market saw them coming. The permanent skeptic.      │
+│                 Searches: SEC EDGAR · Reuters · Court records · FT     │
+│                                                                         │
+└─────────────────────────────────────────────────────────────────────────┘
 ```
 
 ---
 
-## What You Get
+## What you actually get
 
-| Section | What It Covers |
-|---------|---------------|
-| **The Situation** | Company phase, dominant narrative, why it matters right now |
-| **Business Health** | Revenue quality, margins, FCF, ROIC, valuation vs peers — KOVA's findings |
-| **What the Chart Says** | Trend, support/resistance with explanations, momentum, volume, setup verdict — RAZE |
-| **What's Coming** | Next 60-day catalysts with bull/bear scenarios and probability estimates — FLARE |
-| **What the Market Thinks** | Wall Street consensus, institutional vs retail divergence, options, short interest — HERD |
-| **What Could Go Wrong** | 3 company-specific risks with mechanism, probability, impact, leading indicators — VEIL |
-| **ZEPHYR's Verdict** | Full synthesis + Outlook / Best Case / Base Case / Worst Case / Watch For |
+```
+╔══════════════════════════════════════════════════════════════════╗
+║  ⚡ ZEPHYR ANALYST DESK                                          ║
+║  TSLA · Tesla, Inc. · Consumer Cyclical                          ║
+║  NASDAQ · Market Cap: $892.4B                                    ║
+║  2026-06-07 · 14:32 UTC · Live Data                              ║
+╚══════════════════════════════════════════════════════════════════╝
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  TEAM ON THIS REPORT
+  ZEPHYR (Lead) · KOVA · RAZE · FLARE · HERD · VEIL
+  Models: Opus 4.8 (synthesis) · Sonnet 4.6 ×5 (analysis)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+┌─────────────────────────────────────────────────────────────────┐
+│  🔍  THE SITUATION                                               │
+└─────────────────────────────────────────────────────────────────┘
+
+[Strategic context · company phase · dominant market narrative]
+
+┌─────────────────────────────────────────────────────────────────┐
+│  💼  BUSINESS HEALTH                                    · KOVA  │
+└─────────────────────────────────────────────────────────────────┘
+
+[Revenue quality · margins · FCF · ROIC · valuation vs peers]
+GREEN FLAGS: ...
+CONCERNS: ...
+
+┌─────────────────────────────────────────────────────────────────┐
+│  📈  WHAT THE CHART SAYS                                · RAZE  │
+└─────────────────────────────────────────────────────────────────┘
+
+[Trend · support/resistance with explanations · volume · setup verdict]
+SETUP: Attractive Entry / Wait / Caution
+SUPPORT: $XXX — why this level matters
+RESISTANCE: $XXX — why this level matters
+
+┌─────────────────────────────────────────────────────────────────┐
+│  🔥  WHAT'S COMING                                     · FLARE  │
+└─────────────────────────────────────────────────────────────────┘
+
+· [Date] — [Catalyst] — [Why it matters]
+  ↑ Bull (~70%): [outcome + estimated move %]
+  ↓ Bear (~30%): [outcome + estimated move %]
+
+★ BIGGEST CATALYST: ...
+
+┌─────────────────────────────────────────────────────────────────┐
+│  🧠  WHAT THE MARKET THINKS                             · HERD  │
+└─────────────────────────────────────────────────────────────────┘
+
+[Consensus · institutional vs retail divergence · short interest]
+
+┌─────────────────────────────────────────────────────────────────┐
+│  ⚠️   WHAT COULD GO WRONG                               · VEIL  │
+└─────────────────────────────────────────────────────────────────┘
+
+RISK 1: [Specific company-level threat — not generic sector risk]
+RISK 2: [With mechanism · probability · impact · leading indicator]
+RISK 3: [...]
+THESIS-BREAKER: What makes this worth half in 24 months?
+
+╔══════════════════════════════════════════════════════════════════╗
+║  🎯  ZEPHYR'S VERDICT                                           ║
+╚══════════════════════════════════════════════════════════════════╝
+
+[3-4 sentences of honest editorial. Surfaces tensions between analysts.
+Takes a position. Names the single dominant variable.]
+
+┌──────────────────────────────────────────────────────────────────┐
+│  Outlook       🟡 Cautiously Bullish                             │
+│  Time Horizon  Medium 3–12mo                                     │
+│  Best Case     [specific upside scenario + estimated %]          │
+│  Base Case     [most probable path given current data]           │
+│  Worst Case    [top risk materializing + estimated %]            │
+│  This Is For   [specific investor profile]                       │
+│  Watch For     [the one signal that changes everything]          │
+└──────────────────────────────────────────────────────────────────┘
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  ⚡ ZEPHYR ANALYST DESK · Not financial advice · Research only
+  Saved: ~/.zephyr/reports/TSLA_2026-06-07.md · Cache: 4 hours
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+```
+
+---
+
+## What each analyst actually does
+
+| Section | Who | Depth |
+|---------|-----|-------|
+| **Business Health** | KOVA | Revenue trend + quality (organic vs acquired), gross/net/operating margins vs industry benchmarks, FCF generation, ROIC vs cost of capital, earnings quality check (accrual ratio, AR growth vs revenue), management guidance accuracy, valuation vs own 3-year history and closest peer |
+| **What the Chart Says** | RAZE | Monthly/weekly/daily multi-timeframe trend, 50-day and 200-day MA relationship, specific support/resistance with written explanations, RSI with behavioral interpretation, volume confirmation vs divergence, relative strength vs S&P 500, historical pattern analogue, explicit stop level |
+| **What's Coming** | FLARE | Confirmed earnings date + whisper number vs consensus, historical average earnings day move, probability-weighted bull/bear scenarios per catalyst, sector-specific events (FDA dates, FOMC, OPEC), recent news significance assessment, analyst rating changes with firm credibility weighting, management tone from latest call |
+| **What the Market Thinks** | HERD | Buy/Hold/Sell count with consensus PT trend direction (rising = tailwind, quietly falling = hidden warning), 13F institutional flow analysis vs published ratings, retail sentiment extremes as contrarian signal, put/call ratio with IV context, unusual options activity, short interest as % of float + days to cover + squeeze setup check |
+| **What Could Go Wrong** | VEIL | 3 company-specific risks (generic sector risks rejected), each with: exact mechanism of damage, historical analogue from similar company, Probability (L/M/H) + Impact (L/M/H), one leading indicator to watch. Financial stress test: does FCF go negative on -20% revenue? Debt covenant risks. Thesis-breaker scenario with dollar math |
+| **Verdict** | ZEPHYR | Synthesis of all five with explicit contradiction surfacing, dominant variable identification, structured outlook table with investor profile |
 
 ---
 
 ## Installation
 
-### What You Need First
+### You need
 
-- **Node.js 20+** — download at [nodejs.org](https://nodejs.org)
-- **Anthropic API key** — get at [console.anthropic.com](https://console.anthropic.com)
-- **Brave Search API key** — free tier at [brave.com/search/api](https://brave.com/search/api) *(needed for live web data)*
-
----
+- **Node.js 20+** → [nodejs.org](https://nodejs.org)
+- **Anthropic API key** → [console.anthropic.com](https://console.anthropic.com)
+- **Brave Search API key** → [brave.com/search/api](https://brave.com/search/api) *(free tier is enough)*
 
 ### Step 1 — Clone and build
 
@@ -94,33 +211,31 @@ npm install
 npm run build
 ```
 
-Verify it built correctly:
+Check it works:
 
 ```bash
 node dist/index.js --version
-# → zephyr-mcp v1.0.0
+# zephyr-mcp v1.0.0
 ```
-
----
 
 ### Step 2 — Add to Claude
 
-**Find your Claude config file:**
+Open your Claude config file:
 
-| Platform | Config file location |
-|----------|---------------------|
-| macOS | `~/Library/Application Support/Claude/claude_desktop_config.json` |
-| Windows | `%APPDATA%\Claude\claude_desktop_config.json` |
-| Claude Code | `~/.claude.json` (user scope) or `.mcp.json` (project scope) |
+| App | Config location |
+|-----|----------------|
+| **Claude Desktop** (macOS) | `~/Library/Application Support/Claude/claude_desktop_config.json` |
+| **Claude Desktop** (Windows) | `%APPDATA%\Claude\claude_desktop_config.json` |
+| **Claude Code** | `~/.claude.json` |
 
-**Open the config file and add this block** (replace the path and your API keys):
+Add this (replace the path with where you cloned the repo):
 
 ```json
 {
   "mcpServers": {
     "zephyr-analyst-desk": {
       "command": "node",
-      "args": ["/Users/YOUR_NAME/zephyr-desk/dist/index.js"],
+      "args": ["/full/path/to/zephyr-desk/dist/index.js"],
       "env": {
         "ANTHROPIC_API_KEY": "sk-ant-your-key-here",
         "BRAVE_SEARCH_API_KEY": "BSA-your-key-here"
@@ -130,130 +245,98 @@ node dist/index.js --version
 }
 ```
 
-> **Important:** Use the full absolute path to where you cloned the repo. Replace `YOUR_NAME` with your actual username.
-
----
-
-### Step 3 — Restart Claude and verify
-
-Restart Claude Desktop (or reload Claude Code), then type:
+### Step 3 — Restart Claude and test
 
 ```
 Use zephyr_cache_status
 ```
 
-If you see a cache directory response — you're connected and ready.
+If you see a cache directory response — the desk is open.
 
 ---
 
-## How to Use It
+## How to use it
 
-Once installed, just talk to Claude naturally. You don't need to remember tool names.
-
-### Natural language — just ask
+### Just ask naturally
 
 ```
 Analyze TSLA
 ```
 ```
-Give me a full analysis of NVIDIA
+What does Zephyr think about NVIDIA?
 ```
 ```
-What does Zephyr think about Apple right now?
+Give me a full analysis of Apple — I'm considering a position
 ```
 ```
-Analyze MSFT — I'm considering buying
+Run Zephyr on MSFT before earnings
 ```
 
-### Slash command — `/zephyr-desk`
+### Use the slash command
 
 ```
 /zephyr-desk TSLA
 ```
-```
-/zephyr-desk NVDA quick
-```
-```
-/zephyr-desk AAPL risk
-```
-```
-/zephyr-desk MSFT fundamentals
-```
-```
-/zephyr-desk AMZN technical
-```
-```
-/zephyr-desk META news
-```
-```
-/zephyr-desk GOOGL sentiment
-```
 
-### Slash command modes
-
-| Command | What runs | Time |
-|---------|-----------|------|
-| `/zephyr-desk TSLA` | Full 6-agent team analysis | 60–120s |
-| `/zephyr-desk TSLA quick` | ZEPHYR only, fast take | 15–30s |
-| `/zephyr-desk TSLA fundamentals` | KOVA only — deep financials | 20–40s |
-| `/zephyr-desk TSLA technical` | RAZE only — chart analysis | 20–40s |
-| `/zephyr-desk TSLA news` | FLARE only — catalysts & events | 20–40s |
-| `/zephyr-desk TSLA sentiment` | HERD only — positioning | 20–40s |
-| `/zephyr-desk TSLA risk` | VEIL only — risk stress test | 20–40s |
-| `/zephyr-desk TSLA cache` | Show cached analyses | <1s |
-| `/zephyr-desk TSLA clear` | Clear cache for TSLA | <1s |
-
-### Focused questions
+**Focused modes:**
 
 ```
-/zephyr-desk TSLA quick — is the valuation justified at this price?
+/zephyr-desk TSLA quick           ← fast ZEPHYR-only take (15–30s)
+/zephyr-desk TSLA fundamentals    ← KOVA deep financial dive
+/zephyr-desk TSLA technical       ← RAZE chart analysis
+/zephyr-desk TSLA news            ← FLARE upcoming catalysts
+/zephyr-desk TSLA sentiment       ← HERD positioning analysis
+/zephyr-desk TSLA risk            ← VEIL stress test
+```
+
+**With a specific question:**
+
+```
+/zephyr-desk TSLA quick — is the valuation justified at this multiple?
 ```
 ```
-Analyze RIVN — focus on whether cash runway is sufficient
+Analyze RIVN — focus on whether the cash runway is enough to reach profitability
 ```
 ```
-Run Zephyr on BABA — I want to understand the regulatory risk specifically
+Run Zephyr on BABA — what's the actual regulatory risk here?
 ```
+
+**Force fresh data after a major event:**
+
 ```
-Use zephyr_analyze on NVDA with force_refresh true — earnings were yesterday
+Use zephyr_analyze on NVDA with force_refresh true
 ```
 
 ---
 
-## Tools Reference
+## Speed vs depth
 
-Five tools are available directly if you prefer to call them explicitly:
-
-| Tool | Description | Parameters |
-|------|-------------|------------|
-| `zephyr_analyze` | Full 6-agent team analysis | `ticker` (required), `force_refresh` (optional, default false) |
-| `zephyr_quick` | ZEPHYR-only fast take | `ticker` (required), `question` (optional) |
-| `zephyr_agent` | Single analyst | `ticker` (required), `agent`: KOVA / RAZE / FLARE / HERD / VEIL |
-| `zephyr_cache_clear` | Clear cache | `ticker` (optional) or `all: true` |
-| `zephyr_cache_status` | View all cached analyses | none |
+| Mode | What runs | Time | Best for |
+|------|-----------|------|----------|
+| Full analysis | All 6 agents | 60–120s | Researching a new position |
+| Quick take | ZEPHYR only | 15–30s | Checking a stock you already know |
+| Single agent | 1 specialist | 20–40s | Going deep on one dimension |
 
 ---
 
-## Cache & Reports
+## Caching
 
-Every analysis is cached to avoid re-running 6 API calls for the same stock.
+Analyses are cached so you don't re-run 6 API calls every time you ask a follow-up question.
 
-| Tool | Cache Duration |
-|------|---------------|
-| Full analysis | 4 hours |
+| Analysis type | Cached for |
+|--------------|------------|
+| Full team | 4 hours |
 | Quick take | 1 hour |
 | Single agent | 2 hours |
 
-Files are stored in:
-```
-~/.zephyr/
-├── cache/      ← auto-expires (JSON)
-└── reports/    ← permanent saved reports (Markdown)
-```
+Reports are permanently saved as Markdown files at `~/.zephyr/reports/`.
 
-Force fresh data anytime:
+**Cache commands:**
+
 ```
-Use zephyr_analyze on NVDA with force_refresh true
+/zephyr-desk TSLA cache     ← see what's cached
+/zephyr-desk TSLA clear     ← clear cache for TSLA
+Use zephyr_cache_clear with all true   ← wipe everything
 ```
 
 ---
@@ -262,41 +345,41 @@ Use zephyr_analyze on NVDA with force_refresh true
 
 | Problem | Fix |
 |---------|-----|
-| Tool not found after restart | Check the path in your config is the full absolute path to `dist/index.js` |
-| `ANTHROPIC_API_KEY not set` | Add the key to the `env` block in your Claude config file |
-| Web search returns no results | Add `BRAVE_SEARCH_API_KEY` to the env block — agents will warn if it's missing |
-| Response takes 2+ minutes | Normal for full team — 5 parallel live web searches. Use `quick` mode for speed |
-| Report looks outdated | Use `force_refresh: true` or run `/zephyr-desk TICKER clear` first |
-| Build fails | Run `node --version` — must be 20 or higher. Then `npm install` again |
+| Tool not found after restart | Use the **full absolute path** in the config — not a relative path |
+| `ANTHROPIC_API_KEY not set` | Add the key to the `env` block in your Claude config |
+| Agents mention missing data | Add `BRAVE_SEARCH_API_KEY` to the env block — this enables live web search |
+| Response takes 2+ minutes | Normal for full team analysis. Use `quick` mode when speed matters |
+| Report looks stale | Use `force_refresh: true` or clear the cache first |
+| Build errors on `npm run build` | Run `node --version` — must be 20+. Then `npm install` again |
 
 ---
 
-## Project Structure
+## Project structure
 
 ```
 zephyr-desk/
 ├── src/
-│   ├── index.ts              ← MCP server entry, tool registration
-│   ├── types.ts              ← TypeScript interfaces, agent colors, models
+│   ├── index.ts                    ← MCP server · 5 tools registered
+│   ├── types.ts                    ← interfaces · colors · model constants
 │   ├── agents/
-│   │   ├── zephyr.ts         ← Team Lead — Opus 4.8, synthesis
-│   │   ├── kova.ts           ← Fundamentals — Sonnet 4.6
-│   │   ├── raze.ts           ← Technical — Sonnet 4.6
-│   │   ├── flare.ts          ← News & Catalysts — Sonnet 4.6
-│   │   ├── herd.ts           ← Sentiment — Sonnet 4.6
-│   │   └── veil.ts           ← Risk — Sonnet 4.6
+│   │   ├── zephyr.ts               ← Team Lead · Opus 4.8 · synthesis + quick
+│   │   ├── kova.ts                 ← Fundamentals · 15yr Goldman/PM persona
+│   │   ├── raze.ts                 ← Technical · 12yr prop desk persona
+│   │   ├── flare.ts                ← News & Catalysts · 13yr event-driven persona
+│   │   ├── herd.ts                 ← Sentiment · 14yr positioning desk persona
+│   │   └── veil.ts                 ← Risk · 16yr short-seller/risk mgr persona
 │   ├── tools/
-│   │   ├── analyze.ts        ← zephyr_analyze (full team)
-│   │   ├── quick.ts          ← zephyr_quick (ZEPHYR only)
-│   │   ├── agent.ts          ← zephyr_agent (single analyst)
-│   │   └── cache.ts          ← zephyr_cache_clear + zephyr_cache_status
+│   │   ├── analyze.ts              ← zephyr_analyze · Promise.all parallel run
+│   │   ├── quick.ts                ← zephyr_quick · ZEPHYR only
+│   │   ├── agent.ts                ← zephyr_agent · single analyst dispatch
+│   │   └── cache.ts                ← zephyr_cache_clear + zephyr_cache_status
 │   ├── utils/
-│   │   ├── cache.ts          ← file-based cache, TTL, read/write/expire
-│   │   ├── formatter.ts      ← Markdown report renderer
-│   │   ├── search.ts         ← web search (Brave/Tavily) + Claude tool-use loop
-│   │   └── resolver.ts       ← ticker metadata lookup
-│   └── skills/               ← analyst methodology reference docs
-│       ├── fundamentals/SKILL.md
+│   │   ├── cache.ts                ← TTL cache · read/write/expire/status
+│   │   ├── formatter.ts            ← box-drawing Markdown report renderer
+│   │   ├── search.ts               ← Brave/Tavily search + Claude tool-use loop
+│   │   └── resolver.ts             ← Yahoo Finance ticker metadata lookup
+│   └── skills/                     ← analyst methodology reference docs
+│       ├── fundamentals/SKILL.md   ← KOVA's full analytical framework
 │       ├── technical-analysis/SKILL.md
 │       ├── news-catalysts/SKILL.md
 │       ├── sentiment/SKILL.md
@@ -304,18 +387,41 @@ zephyr-desk/
 │       ├── macro-environment/SKILL.md
 │       └── options-derivatives/SKILL.md
 ├── .claude/commands/
-│   └── zephyr-desk.md        ← /zephyr-desk slash command
-├── .mcp.json                 ← Claude Code auto-registration config
-├── manifest.json             ← Plugin metadata
-├── .env.example              ← Environment variable template
+│   └── zephyr-desk.md              ← /zephyr-desk slash command definition
+├── .mcp.json                       ← Claude Code project-level auto-registration
+├── manifest.json                   ← plugin metadata
+├── .env.example                    ← environment variable template
 ├── package.json
 └── tsconfig.json
 ```
 
 ---
 
-## License
+## Skills system
 
-MIT — [github.com/overflowsage/zephyr-desk](https://github.com/overflowsage/zephyr-desk)
+Every analyst's methodology is documented in `src/skills/`. These are reference knowledge bases that define exactly how each analyst approaches their domain — the frameworks they use, what sources they search, how they interpret data, and what constitutes a genuine signal vs noise.
 
-**Not financial advice. This is a research tool. Always do your own due diligence before making any investment decision.**
+| Skill | Agent | Covers |
+|-------|-------|--------|
+| `fundamentals/` | KOVA | DuPont analysis, earnings quality, ROIC vs WACC, capital allocation, sector-specific KPIs |
+| `technical-analysis/` | RAZE | Multi-timeframe framework, support/resistance methodology, volume interpretation, pattern recognition |
+| `news-catalysts/` | FLARE | Catalyst classification, earnings setup analysis, sector-specific events, analyst credibility tiers |
+| `sentiment/` | HERD | 13F divergence analysis, short squeeze conditions, options flow signals, contrarian extremes |
+| `risk-assessment/` | VEIL | Specificity enforcement, probability/impact matrix, financial stress testing, thesis-breaker framework |
+| `macro-environment/` | All | Rate environment, economic cycle positioning, dollar impact, geopolitical overlays |
+| `options-derivatives/` | HERD/VEIL | Greeks, IV analysis, put/call interpretation, unusual flow detection |
+
+---
+
+<div align="center">
+
+**⚡ ZEPHYR ANALYST DESK**
+
+Version 1.0.0 · Opus 4.8 + Sonnet 4.6 ×5 · MCP SDK · MIT License
+
+*Not financial advice. Research tool only. Always do your own due diligence.*
+
+[GitHub](https://github.com/overflowsage/zephyr-desk) · [Report an Issue](https://github.com/overflowsage/zephyr-desk/issues)
+
+</div>
+]]>
